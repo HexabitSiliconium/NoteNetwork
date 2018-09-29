@@ -1,5 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
+
+const lodash = require('lodash');
 const fs = require('fs');
 const path = require('path')
 
@@ -23,6 +25,16 @@ app.get('/logs', (req, res) =>  {
 app.get('/', (req,res) => {
 	res.send('PlaceHolder');
 });
+
+app.get('/uppercase', (req,res)=>{
+
+	res.send(lodash.upperCase('my little teapot.'));
+	var output = lodash.without([1, 2, 3], 1);
+	console.log(output);
+	console.log('That is working perfectly!');
+});
+
+
 
 app.listen(8080, () =>{
 	console.log('Server listening on port 8080');
