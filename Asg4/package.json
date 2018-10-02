@@ -19,8 +19,11 @@
   "dependencies": {
     "express": "^4.16.3",
     "install": "^0.12.1",
+    "jquery": "^3.3.1",
+    "jsdom": "^12.1.0",
     "lodash": "^4.17.11",
     "morgan": "^1.9.1",
-    "npm": "^6.4.1"
+    "npm": "^6.4.1",
+    "nquery": "^0.1.3"
   }
 }

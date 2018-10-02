@@ -7,6 +7,13 @@ const path = require('path')
 
 const app = express();
 
+const jsdom = require('jsdom');
+const $ = require('jquery')(new jsdom.JSDOM().window);
+
+$("body").append("<p>Test Paragraph</p>");
+//$("<h1>test header</h1>").appendTo("body");
+console.log($("body").html());
+
 var accessLogStream = fs.createWriteStream(path.join(__dirname, 'logs.log'), { flags: 'a' })
 
 app.use(morgan('tiny', {stream: accessLogStream}));//Prints a log in the comman line for each HTTP request
