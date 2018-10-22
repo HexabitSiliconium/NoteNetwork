@@ -1,6 +1,7 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const mongoose = require('mongoose');
+const crypto = require('crypto');
 
 const User = mongoose.model('User');
 

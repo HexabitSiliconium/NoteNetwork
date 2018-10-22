@@ -19,8 +19,8 @@ export class NoteUploadComponent implements OnInit {
 
   upload() {
     if (this.noteUpload.image) {
-      this.noteServ.upload(this.noteUpload).subscribe(data => {
-        console.log(data);
+      this.noteServ.upload(this.noteUpload).subscribe(res => {
+        console.log(res);
       }, (err) => {
         console.error(err);
       })
@@ -40,5 +40,4 @@ export class NoteUploadComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

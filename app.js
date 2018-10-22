@@ -5,7 +5,9 @@ const passport = require('passport');
 const cors = require('cors');
 
 const app = express();
-app.use(cors({ origin:true,credentials: true }));
+
+const app = express();
+app.use(cors({ origin: true , credentials: true }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 

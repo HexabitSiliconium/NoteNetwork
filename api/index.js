@@ -13,6 +13,7 @@ var auth = jwt({
 const profileCtrl = require('./controllers/profile');
 const authCtrl = require('./controllers/authentication');
 
+
 router.post('/upload', upload.none(), profileCtrl.uploadNote);
 router.get('/view-notes', profileCtrl.viewNotes);
 

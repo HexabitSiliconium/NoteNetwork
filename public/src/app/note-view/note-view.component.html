@@ -6,11 +6,11 @@
   <ul class="list-unstyled">
     <div class="card" style="width: 18rem;" *ngFor="let note of notes">
       <li>
-      <h3 class="card-header">{{ note.name }}</h3>
+      <h3 class="card-header">{{ note?.name }}</h3>
       <div class="card-content">
-        <img [src]="note.image" style="width: 30%">
+        <img [src]="note?.image" style="width: 50%">
       </div>
-      <div class="card-footer">{{ note.description }}</div>
+      <div class="card-footer">{{ note?.description }}</div>
       </li>
     </div>
   </ul>
