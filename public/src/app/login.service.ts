@@ -5,27 +5,21 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 export interface User {
-	 _id: string;
-	 email: string;
-	 exp: number;
-	 iat: number;
+	username: string;
+	email: string;
+	exp: number;
+	iat: number;
 }
 
 interface tokenResponse {
 	token: string;
+	username: string;
 }
 
 export interface tokenPayload {
 	username: string;
 	email: string;
 	password: string;
-}
-
-const httpOptions = {
-	headers: new HttpHeaders({
-		'Content-Type': 'application/json',
-		observe: "response" as 'body',
-	})
 }
 
 @Injectable({
@@ -38,7 +32,7 @@ export class LoginService {
 
   	private saveToken(token: string): void {
   		localStorage.setItem('user-token', token);
-  		this.token = token;
+		this.token = token;
   	}
 
   	private getToken(): string {
@@ -50,7 +44,8 @@ export class LoginService {
 
   	public logout(): void {
   		this.token = '';
-  		window.localStorage.removeItem('user-token');
+		window.localStorage.removeItem('user-token');
+		window.localStorage.removeItem('username');
   		this.router.navigateByUrl('/login');
   	}
 
@@ -78,7 +73,8 @@ export class LoginService {
   			.pipe(
   				map((data: tokenResponse) => {
   					if (data.token) {
-  						this.saveToken(data.token);
+						  this.saveToken(data.token);
+						  window.localStorage.setItem('username', data.username);
   					}
   				})
   			);
@@ -89,7 +85,8 @@ export class LoginService {
   			.pipe(
   				map((data: tokenResponse) => {
   					if (data.token) {
-  						this.saveToken(data.token);
+						  this.saveToken(data.token);
+						  window.localStorage.setItem('username', data.username);
   					}
   				})
   			);;
@@ -97,12 +94,12 @@ export class LoginService {
 
   	public profile(): Observable<any>{
   		return this.http.get('http://localhost:8080/api/profile')
-  			.pipe(
-  				map((data: tokenResponse) => {
-  					if (data.token) {
-  						this.saveToken(data.token);
-  					}
-  				})
-  			);;
+			.pipe(
+				map((data: tokenResponse) => {
+					if (data.token) {
+						this.saveToken(data.token);
+					}
+				})
+			);
   	}
 }

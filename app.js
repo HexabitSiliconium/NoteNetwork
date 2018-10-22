@@ -1,22 +1,13 @@
 const express = require('express');
-const multer = require('multer');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const passport = require('passport');
 const cors = require('cors');
 
-//var upload = multer();
-
 const app = express();
 app.use(cors({ origin:true,credentials: true }));
-//app.use(bodyParser.urlencoded({ extended: false }));
-//app.use(bodyParser.json());
-/*
-app.post('/', upload.none(), (req, res) => {
-	console.log(req.body);
-	console.log("REq RECEIVED");
-	res.sendStatus(200);
-})*/
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(methodOverride());
 
@@ -38,4 +29,3 @@ app.use((err, req, res, next) => {
 })
 
 app.listen(8080, () => console.log("Listening on 8080"));
-//start server with nodemon index.js

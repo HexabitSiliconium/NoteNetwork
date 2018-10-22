@@ -6,8 +6,8 @@ const User = mongoose.model('User');
 
 passport.use(new LocalStrategy({
 		usernameField: 'email'
-	}, (username, password, done) => {
-		User.findOne({ email: username }, (err, user) => {
+	}, (email, password, done) => {
+		User.findOne({ email: email }, (err, user) => {
 			if (err) {
 				return done(err);
 			}
@@ -16,12 +16,12 @@ passport.use(new LocalStrategy({
 					message: 'User not found'
 				});
 			}
-			if (!user.validPassword(password)) {
+			var salt = user.salt;
+			if ((user.hash === user.generateHash(password, salt)) == false) {
 				return done(null, false, {
 					message: 'Invalid password'
 				});
 			}
-
 			return done(null, user);
 		})
 	}

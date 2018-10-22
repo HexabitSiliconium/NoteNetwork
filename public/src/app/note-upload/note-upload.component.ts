@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteService, Note } from '../note.service';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-note-upload',
@@ -9,7 +8,6 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class NoteUploadComponent implements OnInit {
   base64textString = [];
-  sanitizedURL: SafeResourceUrl;
 
   noteUpload: Note = {
     name: '',
@@ -17,7 +15,7 @@ export class NoteUploadComponent implements OnInit {
     description: ''
 	};
 
-  constructor(private noteServ: NoteService, private _sanitizer: DomSanitizer) { }
+  constructor(private noteServ: NoteService) { }
 
   upload() {
     if (this.noteUpload.image) {
@@ -30,9 +28,6 @@ export class NoteUploadComponent implements OnInit {
   }
 
   onFileChange(event) {
-    //this.noteUpload.image = event.target.files[0];
-
-    
     var reader = new FileReader();
     var file = event.target.files[0];
 
@@ -40,8 +35,6 @@ export class NoteUploadComponent implements OnInit {
 
     reader.onload = () => {
       this.noteUpload.image = reader.result.toString();
-      
-      //this.sanitizedURL = this._sanitizer.bypassSecurityTrustResourceUrl(this.noteUpload.image);
     }
   }
 

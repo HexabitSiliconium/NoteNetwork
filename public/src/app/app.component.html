@@ -8,7 +8,6 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li *ngIf="!login.isLoggedIn()"><a routerLink="/login">login</a></li>
-        <li *ngIf="login.isLoggedIn()"><a routerLink="/profile">{{ login.getUserDetails()?.name }}</a></li>
         <li *ngIf="login.isLoggedIn()"><a (click)="login.logout()">Logout</a></li>
       </ul>
     </div>

@@ -7,11 +7,12 @@ import { NoteUploadComponent } from './note-upload/note-upload.component';
 import { NoteViewComponent } from './note-view/note-view.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import { AuthGuardService } from './auth-guard.service';
 
 const routes: Routes = [
 	{ path: 'login', component: LoginComponent },
-	{ path: 'upload', component: NoteUploadComponent},
-	{ path: 'notes', component: NoteViewComponent },
+	{ path: 'upload', component: NoteUploadComponent , canActivate: [AuthGuardService]},
+	{ path: 'notes', component: NoteViewComponent, canActivate: [AuthGuardService] },
 	{ path: 'register', component: RegisterComponent },
 	{ path: '', component: HomeComponent}
 ];

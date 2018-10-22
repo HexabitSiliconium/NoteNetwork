@@ -1,21 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ResponseContentType } from '@angular/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Router } from '@angular/router';
 
 export interface Note {
 	name: string;
   image: string;
   description: string;
 }
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json'
-  })
-};
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +22,7 @@ export class NoteService {
     formData.append('image', note.image);
     formData.append('name', note.name);
     formData.append('description', note.description);
+    formData.append('uploader', window.localStorage.getItem('username'));
     return this.http.post('http://localhost:8080/api/upload', formData)
   			.pipe(
   				map((res: Response) => {

@@ -16,12 +16,9 @@ export class NoteViewComponent implements OnInit {
   getNotes() {
     this.noteService.getNotes().subscribe(notes => {
       for (let note of notes) {
+        note.image = this.sanitizer.bypassSecurityTrustResourceUrl(note.image);
         this.notes.push(note);
       }
-      /*this.notes = notes;
-      for (let note of this.notes) {
-        this.images.push(note.image);
-      }*/
     })
   }
 

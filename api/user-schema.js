@@ -1,25 +1,22 @@
 const mongoose = require('mongoose');
-const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
 
-mongoose.connect('mongodb+srv://Manager:H82QFrKVNCoHY5dE@users-3sb9g.mongodb.net/test?retryWrites=true')
+mongoose.connect('mongodb+srv://Manager:H82QFrKVNCoHY5dE@users-3sb9g.mongodb.net/test?retryWrites=true', { useNewUrlParser: true })
 	.then(() => {
 		console.log("Database connection made");
 	}, err => {
 		console.log("Error");
 	});
-
-var conn = mongoose.connection;
+	
+mongoose.set('useCreateIndex', true);
 
 var noteSchema = new mongoose.Schema({
 	name: String,
-	image: String,
-	/*
-	image: {
-		contentType: String,
-		data: Buffer
-	},*/
+	image: [String],
 	description: String,
+	uploader: String,
+	tags: [String],
 	comments: [String],
 	votes: Number
 })
@@ -33,20 +30,14 @@ var userSchema = new mongoose.Schema({
 	},
 	hash: String,
 	salt: String,
-	notes: [noteSchema]
+	notes: [String]
 })
 
-userSchema.methods.setPassword = (password) => {
-	this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512')
+userSchema.methods.generateHash = (password, salt) => {
+	var hash = crypto.pbkdf2Sync(password, salt, 1000, 64, 'sha512')
 		.toString('hex');
-	this.salt = crypto.randomBytes(16).toString('hex');
-};
-
-userSchema.methods.validPassword = (password) => {
-	var hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512')
-		.toString('hex');
-	return this.hash === hash;
-};
+	return hash;
+}
 
 userSchema.methods.generateJWT = () => {
 	var expiry = new Date();
