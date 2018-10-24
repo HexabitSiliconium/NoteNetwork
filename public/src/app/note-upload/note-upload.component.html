@@ -1,0 +1,32 @@
+<div class="container">
+
+	<div class="row">
+    
+		<div class="col-md-6">
+
+			<h1 class="form-signin-heading">Upload notes</h1>
+
+			<form (submit)="upload()">
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input class="form-control" name="name"
+						placeholder="Enter name" [(ngModel)]="noteUpload.name">
+				</div>
+				<div class="form-group">
+					<label for="image">Notes: </label>
+					<input type="file" class="file" name="image"
+						placeholder="image" (change)="onFileChange($event)">
+        		</div>
+        		<div class="form-group">
+					<label for="description">Description</label>
+					<textarea class="form-control" name="description"
+            			placeholder="Describe your notes" [(ngModel)]="noteUpload.description">
+           			</textarea>
+				</div>
+				<button type="submit" class="btn btn-default">Submit notes</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+<img *ngIf="sanitizedURL" [src]="sanitizedURL">
