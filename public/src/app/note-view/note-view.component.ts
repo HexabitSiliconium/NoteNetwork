@@ -9,14 +9,19 @@ import { NoteService, Note } from '../note.service';
   styleUrls: ['./note-view.component.css']
 })
 export class NoteViewComponent implements OnInit {
+  //array of any objects(should probably be changed to Note objects)
   notes: any[] = [];
-
+  //Exposes NoteService component and DomSanitizer module
   constructor(private noteService: NoteService, private sanitizer: DomSanitizer) { }
-
+  //Method to get notes
   getNotes() {
+    //Calls getNotes method in NoteService
     this.noteService.getNotes().subscribe(notes => {
+      //For all the notes received in the response,
       for (let note of notes) {
+        //Change image of note to sanitized URL
         note.image = this.sanitizer.bypassSecurityTrustResourceUrl(note.image);
+        //Push note into notes array
         this.notes.push(note);
       }
     })
