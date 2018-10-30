@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-pdf-test',
    template: `
   <div>
+  <input (change)="onFileSelected()" type="file" id="file">
       <label>PDF src</label>
       <input type="text" placeholder="PDF src" [(ngModel)]="pdfSrc">
   </div>
@@ -15,10 +16,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PdfTestComponent implements OnInit {
 
-	pdfSrc: string = '/TestPDF.pdf';
+  pdfSrc: string = '/TestPDF.pdf';
   constructor() { }
 
   ngOnInit() {
   }
+  
+  onFileSelected() {
+  let $img: any = document.querySelector('#file');
+
+  if (typeof (FileReader) !== 'undefined') {
+    let reader = new FileReader();
+
+    reader.onload = (e: any) => {
+      this.pdfSrc = e.target.result;
+    };
+
+    reader.readAsArrayBuffer($img.files[0]);
+  }
+}
 
 }
