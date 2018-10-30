@@ -14,6 +14,7 @@ import { NoteUploadComponent } from './note-upload/note-upload.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import{PdfTestComponent} from './pdf-test/pdf-test.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HomeComponent } from './home/home.component';
     NoteViewComponent,
     NoteUploadComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+	PdfTestComponent,
   ],
   imports: [
     BrowserModule,
