@@ -7,6 +7,7 @@ import { NoteViewComponent } from './note-view/note-view.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuardService } from './auth-guard.service';
+import {PdfTestComponent} from './pdf-test/pdf-test.component';
 
 //Routes for frontend, leads to different component HTMLs
 //IE websitenamehere.com/login leads to login page
@@ -16,7 +17,8 @@ const routes: Routes = [
 	{ path: 'upload', component: NoteUploadComponent , canActivate: [AuthGuardService]},
 	{ path: 'notes', component: NoteViewComponent, canActivate: [AuthGuardService] },
 	{ path: 'register', component: RegisterComponent },
-	{ path: '', component: HomeComponent}
+	{ path: '', component: HomeComponent},
+	{ path: 'pdf', component: PdfTestComponent},
 ];
 
 @NgModule({
