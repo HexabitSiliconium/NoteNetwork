@@ -1,5 +1,21 @@
-<div [InnerHTML] ="app-pdf-test"> </div>
-<input (change) ="onFileSelected()" type = "file" id = "file">
 <p>
   pdf-test works!
 </p>
+  <div>
+  <input (change)="onFileSelected()" type="file" id="file">
+  </div>
+  <div>
+  <button type="button" (click) = "increment(-1)" class="btn btn-outline-primary">Previous</button>  
+  
+  <span>[ Page: {{count}} ]</span>
+  <button type="button" (click)= "increment(1)" class="btn btn-outline-primary">Next</button>
+  </div>
+  
+ 
+  
+  <pdf-viewer [src]="pdfSrc" 
+              [render-text]="true"
+			  [show-all] = "false"
+			  [page] = "count"
+              style="display: block;"
+  ></pdf-viewer>
