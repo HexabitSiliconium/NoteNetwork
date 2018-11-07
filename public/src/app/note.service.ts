@@ -42,6 +42,7 @@ export class NoteService {
         map((res: Response) => {
           //Print response in console
           console.log(res);
+          return res;
         })
       );
   }

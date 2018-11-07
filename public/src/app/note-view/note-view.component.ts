@@ -17,12 +17,14 @@ export class NoteViewComponent implements OnInit {
   getNotes() {
     //Calls getNotes method in NoteService
     this.noteService.getNotes().subscribe(notes => {
+      console.log(notes);
       //For all the notes received in the response,
       for (let note of notes) {
         //Change image of note to sanitized URL
         note.image = this.sanitizer.bypassSecurityTrustResourceUrl(note.image);
         //Push note into notes array
         this.notes.push(note);
+        
       }
     })
   }
@@ -30,5 +32,4 @@ export class NoteViewComponent implements OnInit {
   ngOnInit() {
     this.getNotes();
   }
-
 }
