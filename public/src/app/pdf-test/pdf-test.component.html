@@ -11,11 +11,17 @@
   <button type="button" (click)= "increment(1)" class="btn btn-outline-primary">Next</button>
   </div>
   
- 
+  <div>
+	<button type = "button" (click) = "showPagesToggle()" class="btn btn-outline-primary">Show All Pages Toggle</button>
+
+  </div>
+  <div>
+ 	<p id = "showPagesNotif" style = "display: blocked">Show all Pages Enabled</p>
   
-  <pdf-viewer [src]="pdfSrc" 
-              [render-text]="true"
-			  [show-all] = "false"
+  </div>
+  <pdf-viewer [src] = "pdfSrc" 
+              [render-text] = "true"
+			  [show-all] = "showPages"
 			  [page] = "count"
-              style="display: block;"
+              style = "display: block;"
   ></pdf-viewer>

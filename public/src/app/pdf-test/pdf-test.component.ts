@@ -14,6 +14,8 @@ export class PdfTestComponent implements OnInit {
   
   disablePrev: boolean = true;
   
+  showPages: boolean = false;
+  
   constructor() { }
   
   increment(amount: number){
@@ -24,6 +26,24 @@ export class PdfTestComponent implements OnInit {
 		  this.count += amount;
 	  }
 	
+  }
+  
+  showPagesToggle(){
+	  
+	  var text = document.getElementById("showPagesNotif");
+	  
+	  if(this.showPages == true){
+		  text.style.display = "none";		 
+		  this.showPages = false;
+
+	  }
+	  else{
+		  text.style.display = "blocked";
+		  this.showPages = true;
+		  this.count = 1;
+
+	  }
+	  
   }
   
 
