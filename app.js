@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const passport = require('passport');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 //Server app

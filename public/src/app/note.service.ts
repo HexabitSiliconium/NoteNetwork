@@ -26,7 +26,7 @@ export class NoteService {
     formData.append('description', note.description);
     formData.append('uploader', window.localStorage.getItem('username'));
     //Post request to api upload endpoint
-    return this.http.post('http://localhost:8080/api/upload', formData)
+    return this.http.post('http://ec2-18-191-193-137.us-east-2.compute.amazonaws.com:8080/api/upload', formData)
   			.pipe(//Pipes response
   				map((res: Response) => {
             //Print response in console
@@ -37,7 +37,7 @@ export class NoteService {
   //Get note method, returns array of anys(should probably be Note objects)
   getNotes(): Observable<any[]> {
     //Get request to api view-notes endpoint
-    return this.http.get<any[]>('http://localhost:8080/api/view-notes')
+    return this.http.get<any[]>('http://ec2-18-191-193-137.us-east-2.compute.amazonaws.com:8080/api/view-notes')
       .pipe(//Pipes response
         map((res: Response) => {
           //Print response in console

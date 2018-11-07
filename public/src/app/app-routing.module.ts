@@ -13,7 +13,7 @@ import { AuthGuardService } from './auth-guard.service';
 const routes: Routes = [
 	{ path: 'login', component: LoginComponent },
 	//AuthGuard blocks users who are not logged in from accessing those pages
-	{ path: 'upload', component: NoteUploadComponent , canActivate: [AuthGuardService]},
+	{ path: 'upload', component: NoteUploadComponent, canActivate: [AuthGuardService]},
 	{ path: 'notes', component: NoteViewComponent, canActivate: [AuthGuardService] },
 	{ path: 'register', component: RegisterComponent },
 	{ path: '', component: HomeComponent}

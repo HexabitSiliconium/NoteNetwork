@@ -8,7 +8,7 @@ mongoose.connect('mongodb+srv://Manager:H82QFrKVNCoHY5dE@users-3sb9g.mongodb.net
 	.then(() => {
 		console.log("Database connection made");
 	}, err => {
-		console.log("Error");
+		console.log("Error Connecting with database");
 	});
 //Avoids deprecation warning
 mongoose.set('useCreateIndex', true);
