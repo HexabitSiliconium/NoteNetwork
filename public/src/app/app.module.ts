@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+
 
 //For PDFs later: https://github.com/vadimdez/ng2-pdf-viewer
 //Component and module imports
@@ -12,6 +14,7 @@ import { NoteUploadComponent } from './note-upload/note-upload.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import{PdfTestComponent} from './pdf-test/pdf-test.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +23,15 @@ import { HomeComponent } from './home/home.component';
     NoteViewComponent,
     NoteUploadComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+	PdfTestComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+	PdfViewerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
