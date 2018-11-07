@@ -1,0 +1,14 @@
+
+.bg{
+    height:100em; 
+    background-size:cover;
+    width:100%;
+    background-image: url("./notebook.jpeg");
+    background-position:50% 50%;    
+}
+
+.container{
+    font-family: 'Roboto', sans-serif;
+    
+} 
+

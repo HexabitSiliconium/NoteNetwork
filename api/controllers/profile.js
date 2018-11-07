@@ -11,7 +11,7 @@ module.exports.viewNotes = (req, res) => {
 		if (err) {
 			console.log(err);
 		} else {
-			res.status(200).json(notes);
+			res.json(notes);
 		}
 	})
 }
