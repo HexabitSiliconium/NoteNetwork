@@ -16,6 +16,18 @@ module.exports.viewNotes = (req, res) => {
 	})
 }
 
+//Endpoint to view individual note
+module.exports.viewNoteDetails = (req, res) => {
+	//Finds single note in the collection and sends it as JSON
+	Note.findById(req.body._id, null, (err, note) => {
+		if (err) {
+			console.log(err);
+		} else {
+			res.status(200).json(note);
+		}
+	})
+}
+
 //Endpoint to upload notes
 module.exports.uploadNote = (req, res) => {
 	//Creates new note model

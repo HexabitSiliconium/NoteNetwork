@@ -7,7 +7,8 @@ import { NoteViewComponent } from './note-view/note-view.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuardService } from './auth-guard.service';
-import {PdfTestComponent} from './pdf-test/pdf-test.component';
+import { PdfTestComponent } from './pdf-test/pdf-test.component';
+import { NoteIndividualComponent } from './note-individual/note-individual.component';
 
 //Routes for frontend, leads to different component HTMLs
 //IE websitenamehere.com/login leads to login page
@@ -16,6 +17,7 @@ const routes: Routes = [
 	//AuthGuard blocks users who are not logged in from accessing those pages
 	{ path: 'upload', component: NoteUploadComponent, canActivate: [AuthGuardService]},
 	{ path: 'notes', component: NoteViewComponent, canActivate: [AuthGuardService] },
+	{ path: 'notes/:id', component: NoteIndividualComponent, canActivate: [AuthGuardService]},
 	{ path: 'register', component: RegisterComponent },
 	{ path: '', component: HomeComponent},
 	{ path: 'pdf', component: PdfTestComponent},

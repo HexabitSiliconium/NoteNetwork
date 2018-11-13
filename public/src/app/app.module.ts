@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import{PdfTestComponent} from './pdf-test/pdf-test.component';
+import { NoteIndividualComponent } from './note-individual/note-individual.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import{PdfTestComponent} from './pdf-test/pdf-test.component';
     RegisterComponent,
     HomeComponent,
 	PdfTestComponent,
+	NoteIndividualComponent,
   ],
   imports: [
     BrowserModule,
