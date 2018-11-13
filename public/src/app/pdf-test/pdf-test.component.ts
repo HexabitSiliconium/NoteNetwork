@@ -12,6 +12,10 @@ export class PdfTestComponent implements OnInit {
   
   count = 1;
   
+  zoomLevel = 1;
+  
+  rotateOrientation = 0;
+  
   disablePrev: boolean = true;
   
   showPages: boolean = false;
@@ -28,17 +32,32 @@ export class PdfTestComponent implements OnInit {
 	
   }
   
+  zoomIncrement(amount: number){
+		if(this.zoomLevel <= .51 && (amount ==-.1 || amount ==-.05 || amount ==-.01)){
+			console.log("Lowest Zoom reached");
+		}
+		else if(this.zoomLevel >=2 && (amount ==.1 || amount ==.05 || amount ==.01)) {
+			console.log("Max Zoom Reached");
+		}
+		else{
+			this.zoomLevel += amount;
+		}
+		
+		
+  }
+  
+  rotateIncrement(amount:number){
+	  this.rotateOrientation += amount;
+  }
+  
+  
   showPagesToggle(){
 	  
-	  var text = document.getElementById("showPagesNotif");
-	  
 	  if(this.showPages == true){
-		  text.style.display = "none";		 
 		  this.showPages = false;
 
 	  }
 	  else{
-		  text.style.display = "blocked";
 		  this.showPages = true;
 		  this.count = 1;
 

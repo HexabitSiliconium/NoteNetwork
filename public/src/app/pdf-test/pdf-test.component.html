@@ -12,16 +12,28 @@
   </div>
   
   <div>
-	<button type = "button" (click) = "showPagesToggle()" class="btn btn-outline-primary">Show All Pages Toggle</button>
+	<button type = "button" (click) = "showPagesToggle()" class="btn btn-outline-primary">Show All Pages Toggle</button><br>
 
-  </div>
-  <div>
- 	<p id = "showPagesNotif" style = "display: blocked">Show all Pages Enabled</p>
+	<span> [ Zoom: {{zoomLevel}}x ] </span><br>
+	<button type = "button" (click) = "zoomIncrement(-.1)" class = "btn btn-outline-primary">Zoom Out(-.1)</button>
+	<button type = "button" (click) = "zoomIncrement(-.05)" class = "btn btn-outline-primary">Zoom Out(-.05)</button>
+	<button type = "button" (click) = "zoomIncrement(-.01)" class = "btn btn-outline-primary">Zoom Out(-.01)</button>
+	
+	<button type = "button" (click) = "zoomIncrement(.01)" class = "btn btn-outline-primary">Zoom Out(+.1)</button>
+	<button type = "button" (click) = "zoomIncrement(.05)" class = "btn btn-outline-primary">Zoom Out(+.05)</button>
+	<button type ="button" (click) = "zoomIncrement(.1)" class ="btn btn-outline-primary">Zoom In(+.1)</button> <br>
+	
+	<span> [ Rotation: {{rotateOrientation}} ]</span><br>
+	<button type = "button" (click) = "rotateIncrement(-90)" class = "btn btn-outline-primary">Rotate Left(-90)</button>
+	
+	<button type = "button" (click) = "rotateIncrement(90)" class = "btn btn-outline-primary">Rotate Right (+90)</button>
   
   </div>
   <pdf-viewer [src] = "pdfSrc" 
               [render-text] = "true"
 			  [show-all] = "showPages"
 			  [page] = "count"
+			  [zoom] = "zoomLevel"
+			  [rotation] = "rotateOrientation"
               style = "display: block;"
   ></pdf-viewer>
