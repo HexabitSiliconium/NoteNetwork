@@ -3,15 +3,17 @@
 </h2>
 
 <div class="row">
-  <ul class="list-unstyled">
-    <div class="card" style="width: 18rem;" *ngFor="let note of notes">
-      <li>
-      <h3 class="card-header">{{ note?.name }}</h3>
-      <div class="card-content">
-        <img [src]="note?.image" style="width: 50%">
+  <ul class="list-unstyled" *ngFor="let note of notes">
+    <a routerLink="/notes/{{ note?._id }}">
+      <div class="card" style="width: 18rem;" >
+        <li>
+        <h3 class="card-header">{{ note?.name }}</h3>
+        <div class="card-content">
+          <img [src]="note?.image" style="width: 50%">
+        </div>
+        <div class="card-footer">{{ note?.description }}</div>
+        </li>
       </div>
-      <div class="card-footer">{{ note?.description }}</div>
-      </li>
-    </div>
+    </a>
   </ul>
 </div>

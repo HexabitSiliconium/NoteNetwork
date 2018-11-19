@@ -14,12 +14,12 @@ app.use(bodyParser.json());
 //Enable method override for put and delete requests
 app.use(methodOverride());
 //Loading scripts for user-schema and passport
-require('./api/user-schema');
+require('./api/schemas');
 require('./api/passport');
-//Path to Router
-const routesApi = require('./api/index');
 //Initialize passport
 app.use(passport.initialize());
+//Path to Router
+const routesApi = require('./api/index');
 //Redirect calls to */api to the router
 app.use('/api', routesApi);
 //401 unauthorized error

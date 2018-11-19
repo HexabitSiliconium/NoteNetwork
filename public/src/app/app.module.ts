@@ -12,6 +12,11 @@ import { NoteUploadComponent } from './note-upload/note-upload.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+<<<<<<< HEAD
+=======
+import{PdfTestComponent} from './pdf-test/pdf-test.component';
+import { NoteIndividualComponent } from './note-individual/note-individual.component';
+>>>>>>> master
 
 @NgModule({
   declarations: [
@@ -20,7 +25,13 @@ import { HomeComponent } from './home/home.component';
     NoteViewComponent,
     NoteUploadComponent,
     RegisterComponent,
+<<<<<<< HEAD
     HomeComponent
+=======
+    HomeComponent,
+	PdfTestComponent,
+	NoteIndividualComponent,
+>>>>>>> master
   ],
   imports: [
     BrowserModule,

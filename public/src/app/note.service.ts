@@ -14,6 +14,8 @@ export interface Note {
 })
 
 export class NoteService {
+  notes: Note[];
+
   //Exposes HttpClient module
   constructor(private http: HttpClient) { }
   //Upload method
@@ -35,9 +37,21 @@ export class NoteService {
   			);
   }
   //Get note method, returns array of anys(should probably be Note objects)
-  getNotes(): Observable<any[]> {
+  getNotes(): Observable<Note[]> {
     //Get request to api view-notes endpoint
-    return this.http.get<any[]>('http://ec2-18-191-193-137.us-east-2.compute.amazonaws.com:8080/api/view-notes')
+    return this.http.get<Note[]>('http://ec2-18-191-193-137.us-east-2.compute.amazonaws.com:8080/api/view-notes')
+      .pipe(//Pipes response
+        map((res: Response) => {
+          //Print response in console
+          console.log(res);
+          return res;
+        })
+      );
+  }
+  //Get note method, returns array of anys(should probably be Note objects)
+  getIndividualNote(noteId: string): Observable<Note> {
+    //Get request to api view-notes endpoint
+    return this.http.post<Note>('http://ec2-18-191-193-137.us-east-2.compute.amazonaws.com:8080/api/view-note-details', { _id: noteId })
       .pipe(//Pipes response
         map((res: Response) => {
           //Print response in console
