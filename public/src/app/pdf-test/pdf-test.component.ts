@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PdfTestComponent implements OnInit {
 
-  pdfSrc: string = '/TestPDF.pdf';
+  pdfSrc: string = 'src/app/pdf-test/TestPDF.pdf';
   
   count = 1;
   
