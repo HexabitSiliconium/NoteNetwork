@@ -1,0 +1,13 @@
+.backgroundUpload{
+    height:100em; 
+    background-size:cover;
+    width:100%;
+    background-image: url("./upload3.jpg");
+    background-position:50% 50%; 
+}
+
+.form-signin-heading
+{
+    font-family: 'Stencil Std', fantasy;
+
+}
