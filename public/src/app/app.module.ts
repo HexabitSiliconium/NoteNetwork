@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 //For PDFs later: https://github.com/vadimdez/ng2-pdf-viewer
 //Component and module imports
 import { AppComponent } from './app.component';
@@ -31,6 +31,7 @@ import { NoteIndividualComponent } from './note-individual/note-individual.compo
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    PdfViewerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
