@@ -1,3 +1,4 @@
+<div class="backgroundUpload">
 <div class="container">
 
 	<div class="row">
@@ -8,12 +9,12 @@
 
 			<form (submit)="upload()">
 				<div class="form-group">
-					<label for="name">Name</label>
+					<label for="name">File Name</label>
 					<input class="form-control" name="name"
-						placeholder="Enter name" [(ngModel)]="noteUpload.name">
+						placeholder="Enter file name" [(ngModel)]="noteUpload.name">
 				</div>
 				<div class="form-group">
-					<label for="image">Notes: </label>
+					<label for="image"></label>
 					<input type="file" class="file" name="image"
 						placeholder="image" (change)="onFileChange($event)">
         		</div>
@@ -28,3 +29,5 @@
 		</div>
 	</div>
 </div>
+</div>
+<img *ngIf="sanitizedURL" [src]="sanitizedURL">
