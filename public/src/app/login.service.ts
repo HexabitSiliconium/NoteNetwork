@@ -77,7 +77,7 @@ export class LoginService {
   	}
 	//Makes post request to api register endpoint
   	public register(user: tokenPayload): Observable<any> {
-  		return this.http.post('http://localhost:8080/api/register', user)
+  		return this.http.post('http://ec2-18-191-193-137.us-east-2.compute.amazonaws.com:8080/api/register', user)
   			.pipe(//Pipe response
   				map((data: tokenResponse) => {
 					//If response received, save token and set username in local storage
@@ -90,7 +90,7 @@ export class LoginService {
   	}
 	//Makes post request to api login endpoint
   	public login(user: tokenPayload): Observable<any> {
-  		return this.http.post('http://localhost:8080/api/login', user)
+  		return this.http.post('http://ec2-18-191-193-137.us-east-2.compute.amazonaws.com:8080/api/login', user)
   			.pipe(//Pipes response
   				map((data: tokenResponse) => {
 					//If response received, save token and set username in local storage

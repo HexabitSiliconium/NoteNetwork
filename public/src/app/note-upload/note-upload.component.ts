@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteService, Note } from '../note.service';
+import { Base64 } from 'js-base64';
 
 @Component({
   selector: 'app-note-upload',
@@ -43,7 +44,7 @@ export class NoteUploadComponent implements OnInit {
     //When reader receives file, calls this
     reader.onload = () => {
       //Sets noteupload to base64 string representation of file
-      this.noteUpload.image = reader.result.toString();
+      this.noteUpload.image = Base64.btoa(reader.result.toString());
     }
   }
 

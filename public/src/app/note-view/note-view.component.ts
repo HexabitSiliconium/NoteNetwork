@@ -21,7 +21,7 @@ export class NoteViewComponent implements OnInit {
       //For all the notes received in the response,
       for (let note of notes) {
         //Change image of note to sanitized URL
-        // note.image = this.sanitizer.bypassSecurityTrustUrl(note.image);
+        note.image = this.sanitizer.bypassSecurityTrustUrl(note.image);
         //Push note into notes array
         this.notes.push(note);
       }

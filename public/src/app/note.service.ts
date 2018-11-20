@@ -5,7 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 //Note interface to send in requests
 export interface Note {
 	name: string;
-  image: string;
+  image: any;
   description: string;
 }
 
@@ -55,7 +55,7 @@ export class NoteService {
       .pipe(//Pipes response
         map((res: Response) => {
           //Print response in console
-          console.log(res);
+          // console.log(res);
           return res;
         })
       );
