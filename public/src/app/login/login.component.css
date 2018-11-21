@@ -1,0 +1,32 @@
+.back{
+    height:100em; 
+    background-size:cover;
+    width:100%;
+    background-image: url("./upload3.jpg");
+    background-position:50% 50%; 
+}
+
+.col-md-6{
+    width: 500px;
+    padding: 40px;
+    position: absolute;
+    top: 1%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    background: #E5E5E5;
+    
+}
+
+.container input[type = "email"], .container input[type = "password"]{
+    border: 2px solid  #3498db;
+    
+}
+
+.container button[type= "submit"]{
+    border: 2px solid  #3498db;
+    
+}
+
+.container button[type= "submit"]:hover{
+    background: #60a0db;
+}

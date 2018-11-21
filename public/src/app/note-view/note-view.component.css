@@ -1,0 +1,17 @@
+.background{
+    height:100em; 
+    background-size:cover;
+    width:100%;
+    background-image: url("./upload3.jpg");
+    background-position:50% 50%; 
+}
+
+h2{
+    text-align: center;
+    font-family: 'Verdana', 'Geneva', sans-serif;
+}
+
+.row{
+    margin: auto;
+    width: 50%;
+}

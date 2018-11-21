@@ -1,3 +1,14 @@
-.container{
-    background-color:#ececec;
+ul li a{
+    padding: 5px, 10px;
+    display: inline-block;
+    transition: 0.6s ease;
+    font-family: century gothic;
+    text-decoration: none;
+
 }
+
+ul li a:hover{
+    background-color: #fff;
+
+}
+
