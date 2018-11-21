@@ -15,11 +15,11 @@ mongoose.set('useCreateIndex', true);
 //Schema for notes
 var noteSchema = new mongoose.Schema({
 	name: String,
-	image: [String],
+	image: String,
 	description: String,
 	uploader: String,
 	tags: [String],
-	comments: [String],
+	comments: [],
 	votes: Number
 })
 //Schema for users

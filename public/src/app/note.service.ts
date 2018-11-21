@@ -7,6 +7,7 @@ export interface Note {
 	name: string;
   image: any;
   description: string;
+  tags: String[];
 }
 
 @Injectable({
@@ -26,13 +27,16 @@ export class NoteService {
     formData.append('image', note.image);
     formData.append('name', note.name);
     formData.append('description', note.description);
+    formData.append('tags', JSON.stringify(note.tags));
     formData.append('uploader', window.localStorage.getItem('username'));
     //Post request to api upload endpoint
+    //http://ec2-18-191-193-137.us-east-2.compute.amazonaws.com
     return this.http.post('http://ec2-18-191-193-137.us-east-2.compute.amazonaws.com:8080/api/upload', formData)
   			.pipe(//Pipes response
   				map((res: Response) => {
             //Print response in console
             console.log(res);
+            return res;
   				})
   			);
   }
@@ -43,14 +47,14 @@ export class NoteService {
       .pipe(//Pipes response
         map((res: Response) => {
           //Print response in console
-          console.log(res);
+          // console.log(res);
           return res;
         })
       );
   }
-  //Get note method, returns array of anys(should probably be Note objects)
+  //Post method to view note details
   getIndividualNote(noteId: string): Observable<Note> {
-    //Get request to api view-notes endpoint
+    //Get request to api view-notes-details endpoint
     return this.http.post<Note>('http://ec2-18-191-193-137.us-east-2.compute.amazonaws.com:8080/api/view-note-details', { _id: noteId })
       .pipe(//Pipes response
         map((res: Response) => {

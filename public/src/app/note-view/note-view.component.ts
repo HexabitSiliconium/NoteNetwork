@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Base64 } from 'js-base64';
 
 import { NoteService, Note } from '../note.service';
 
@@ -20,8 +21,8 @@ export class NoteViewComponent implements OnInit {
       console.log(notes);
       //For all the notes received in the response,
       for (let note of notes) {
-        //Change image of note to sanitized URL
-        note.image = this.sanitizer.bypassSecurityTrustUrl(note.image);
+        //Decode note's image
+        note.image = Base64.atob(note.image);//this.sanitizer.bypassSecurityTrustUrl(note.image);
         //Push note into notes array
         this.notes.push(note);
       }

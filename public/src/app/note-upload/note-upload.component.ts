@@ -12,7 +12,8 @@ export class NoteUploadComponent implements OnInit {
   noteUpload: Note = {
     name: '',
     image: '',
-    description: ''
+    description: '',
+    tags: [],
 	};
   //Exposes NoteService component
   constructor(private noteServ: NoteService) { }
@@ -24,11 +25,15 @@ export class NoteUploadComponent implements OnInit {
       this.noteUpload.description) {
       //Calls upload method in NoteService component
       this.noteServ.upload(this.noteUpload).subscribe(res => {
-        //Prints response in console if successful
-        console.log(res);
+        //Display success message and clear inputs
+        window.alert("Successfully uploaded notes!");
+        this.noteUpload.name = '';
+        this.noteUpload.image = '';
+        this.noteUpload.description = '';
+        this.noteUpload.tags = [];
       }, (err) => {
-        //Otherwise print error
-        console.error(err);
+        console.log(err);
+        window.alert("Failed to upload notes");
       })
     }
   }
@@ -47,6 +52,8 @@ export class NoteUploadComponent implements OnInit {
       this.noteUpload.image = Base64.btoa(reader.result.toString());
     }
   }
+
+  //TODO: ONADD AND ONREMOVE FOR TAGGING
 
   ngOnInit() {
   }

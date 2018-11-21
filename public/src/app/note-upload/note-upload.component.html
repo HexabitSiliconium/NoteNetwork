@@ -11,7 +11,7 @@
 				<div class="form-group">
 					<label for="name">File Name</label>
 					<input class="form-control" name="name"
-						placeholder="Enter file name" [(ngModel)]="noteUpload.name">
+						placeholder="Enter file name" autocomplete="off" [(ngModel)]="noteUpload.name">
 				</div>
 				<div class="form-group">
 					<label for="image"></label>
@@ -21,13 +21,13 @@
         		<div class="form-group">
 					<label for="description">Description</label>
 					<textarea class="form-control" name="description"
-            			placeholder="Describe your notes" [(ngModel)]="noteUpload.description">
+            			placeholder="Describe your notes" autocomplete="off" [(ngModel)]="noteUpload.description">
            			</textarea>
 				</div>
+				<!--TODO: ADD TAGGING-->
 				<button type="submit" class="btn btn-default">Submit notes</button>
 			</form>
 		</div>
 	</div>
 </div>
 </div>
-<img *ngIf="sanitizedURL" [src]="sanitizedURL">

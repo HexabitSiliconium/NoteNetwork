@@ -30,9 +30,7 @@ export class NoteIndividualComponent implements OnInit {
     return new Promise (resolve => {
       this.noteService.getIndividualNote(noteId).subscribe(note => {
         this.note = note;
-        // Base64.atob((String(note.image[0])));
-        console.log(Base64.atob(String(note.image[0])));
-        this.pdfSrc = Base64.atob(String(note.image[0]));
+        this.pdfSrc = Base64.atob(String(note.image));
         resolve();
       });
     });
@@ -44,8 +42,6 @@ export class NoteIndividualComponent implements OnInit {
     });
   }
 
-  
-  
   increment(amount: number){
     if(this.count == 1 && amount ==-1){
       console.log("First page reached.");
@@ -53,7 +49,6 @@ export class NoteIndividualComponent implements OnInit {
     else{
       this.count += amount;
     }
-  
   }
   
   zoomIncrement(amount: number){
@@ -66,17 +61,14 @@ export class NoteIndividualComponent implements OnInit {
     else{
       this.zoomLevel += amount;
     }
-    
-    
+
   }
   
   rotateIncrement(amount:number){
     this.rotateOrientation += amount;
   }
   
-  
   showPagesToggle(){
-    
     if(this.showPages == true){
       this.showPages = false;
 

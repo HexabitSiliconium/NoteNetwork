@@ -10,7 +10,7 @@
         <li>
         <h3 class="card-header">{{ note?.name }}</h3>
         <div class="card-content">
-          <img [src]="note?.image" style="width: 50%">
+          <pdf-viewer [src]="note?.image" [original-size]="false" [show-all]="false" style="width: 50%"></pdf-viewer>
         </div>
         <div class="card-footer">{{ note?.description }}</div>
         </li>
