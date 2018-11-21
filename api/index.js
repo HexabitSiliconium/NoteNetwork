@@ -21,7 +21,9 @@ router.post('/upload', upload.none(), noteCtrl.uploadNote);
 //Route to view notes (get request)
 router.get('/view-notes', noteCtrl.viewNotes);
 //Route to view note details/individual note
-router.post('/view-note-details', noteCtrl.viewNoteDetails)
+router.post('/view-note-details', noteCtrl.viewNoteDetails);
+//Route to upload comment
+router.post('/add-comment', noteCtrl.addComment);
 //Route to register
 router.post('/register', authCtrl.register);
 //Route to login

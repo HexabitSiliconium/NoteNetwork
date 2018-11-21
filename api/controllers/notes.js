@@ -10,8 +10,9 @@ module.exports.viewNotes = (req, res) => {
 	Note.find({}, null, (err, notes) => {
 		if (err) {
 			console.log(err);
+			res.sendStatus(404);
 		} else {
-			res.json(notes);
+			res.status(200).json(notes);
 		}
 	})
 }
@@ -22,6 +23,7 @@ module.exports.viewNoteDetails = (req, res) => {
 	Note.findById(req.body._id, null, (err, note) => {
 		if (err) {
 			console.log(err);
+			res.sendStatus(404);
 		} else {
 			res.status(200).json(note);
 		}
@@ -34,15 +36,23 @@ module.exports.uploadNote = (req, res) => {
 	var note = new Note();
 	//Setting note fields based on request body
 	note.name = req.body.name;
-	note.image.push(req.body.image);
+	note.image = req.body.image;
 	note.description = req.body.description;
-	note.tags.push(req.body.tags);
+	tags = JSON.parse(req.body.tags);
+	for (var n in tags) {
+		note.tags.push(tags[n].display);
+	}
 	note.uploader = req.body.uploader;
 	//Finds user that uploaded note, and pushes note ID to their list of uploaded notes
 	User.findByIdAndUpdate({ username: req.body.uploader },
 		{$push: {notes: note._id}});
 	//Save note
 	note.save();
-	//Send back 200 status
+	req.sendStatus(200);
+}
+
+module.exports.addComment = (req, res) => {
+	Note.findById({ _id: req.body._id}, 
+		{$push: {comments: req.body.comment}});
 	res.sendStatus(200);
 }
