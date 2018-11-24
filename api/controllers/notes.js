@@ -13,7 +13,7 @@ module.exports.viewNotes = (req, res) => {
 			res.sendStatus(404);
 		} else {
 			res.json(notes);
-			res.sendStatus(200);
+			res.status(200);
 		}
 	})
 }
@@ -24,10 +24,10 @@ module.exports.viewNoteDetails = (req, res) => {
 	Note.findById(req.body._id, null, (err, note) => {
 		if (err) {
 			console.log(err);
-			res.sendStatus(404);
+			res.status(404);
 		} else {
 			res.json(note);
-			res.sendStatus(200);
+			res.status(200);
 		}
 	})
 }
