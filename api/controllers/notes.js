@@ -12,8 +12,7 @@ module.exports.viewNotes = (req, res) => {
 			console.log(err);
 			res.sendStatus(404);
 		} else {
-			res.json(notes);
-			res.status(200);
+			res.json(notes).status(200);
 		}
 	})
 }
@@ -26,8 +25,7 @@ module.exports.viewNoteDetails = (req, res) => {
 			console.log(err);
 			res.status(404);
 		} else {
-			res.json(note);
-			res.status(200);
+			res.json(note).status(200);
 		}
 	})
 }
@@ -40,17 +38,17 @@ module.exports.uploadNote = (req, res) => {
 	note.name = req.body.name;
 	note.image = req.body.image;
 	note.description = req.body.description;
-	tags = JSON.parse(req.body.tags);
-	for (var n in tags) {
-		note.tags.push(tags[n].display);
-	}
+	// tags = JSON.parse(req.body.tags);
+	// for (var n in tags) {
+	// 	note.tags.push(tags[n].display);
+	// }
 	note.uploader = req.body.uploader;
 	//Finds user that uploaded note, and pushes note ID to their list of uploaded notes
 	User.findByIdAndUpdate({ username: req.body.uploader },
 		{$push: {notes: note._id}});
 	//Save note
 	note.save();
-	req.sendStatus(200);
+	res.sendStatus(200);
 }
 
 module.exports.addComment = (req, res) => {

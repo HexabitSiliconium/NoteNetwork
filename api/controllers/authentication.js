@@ -24,8 +24,7 @@ module.exports.register = (req, res) => {
 		res.json({
 			"token": token,
 			"username": user.username
-		});
-		res.sendStatus(200);
+		}).status(200);
 	});
 };
 //Endpoint for login
@@ -35,8 +34,7 @@ module.exports.login = (req, res) => {
 		var token;
 		//Unfound
 		if (err) {
-			res.json(err);
-			res.sendStatus(404);
+			res.json(err).status(404);
 		}
 		//If successful, sends back token and username
 		if (user) {
@@ -44,12 +42,10 @@ module.exports.login = (req, res) => {
 			res.json({
 				"token" : token,
 				"username": user.username
-			});
-			res.sendStatus(200);
+			}).status(200);
 		} else {
-			res.json(info);
 			//If unsuccessful, send back 401 status
-			res.sendStatus(401);
+			res.json(info).status(401);
 		}
 	})(req, res);
 };
