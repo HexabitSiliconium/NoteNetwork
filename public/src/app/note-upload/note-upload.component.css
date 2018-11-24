@@ -8,6 +8,14 @@
 
 .form-signin-heading
 {
-    font-family: 'Stencil Std', fantasy;
+    font-family: 'Verdana', 'Geneva', sans-serif;
 
+}
+
+.container button[type= "submit"]:hover{
+    background: #99a8b6;
+}
+
+.col-md-6{
+    margin: auto;
 }
