@@ -12,7 +12,8 @@ module.exports.viewNotes = (req, res) => {
 			console.log(err);
 			res.sendStatus(404);
 		} else {
-			res.status(200).json(notes);
+			res.json(notes);
+			res.sendStatus(200);
 		}
 	})
 }
@@ -25,7 +26,8 @@ module.exports.viewNoteDetails = (req, res) => {
 			console.log(err);
 			res.sendStatus(404);
 		} else {
-			res.status(200).json(note);
+			res.json(note);
+			res.sendStatus(200);
 		}
 	})
 }
