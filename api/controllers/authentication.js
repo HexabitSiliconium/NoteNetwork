@@ -21,11 +21,10 @@ module.exports.register = (req, res) => {
 		//Username also sent back
 		var token;
 		token = user.generateJWT();
-		res.sendStatus(200);
 		res.json({
 			"token": token,
 			"username": user.username
-		});
+		}).status(200);
 	});
 };
 //Endpoint for login
@@ -35,21 +34,18 @@ module.exports.login = (req, res) => {
 		var token;
 		//Unfound
 		if (err) {
-			res.sendStatus(404).json(err);
-			return;
+			res.json(err).status(404);
 		}
 		//If successful, sends back token and username
 		if (user) {
 			token = user.generateJWT();
-			res.sendStatus(200);
 			res.json({
 				"token" : token,
 				"username": user.username
-			});
+			}).status(200);
 		} else {
 			//If unsuccessful, send back 401 status
-			res.sendStatus(401)
-			res.json(info);
+			res.json(info).status(401);
 		}
 	})(req, res);
 };

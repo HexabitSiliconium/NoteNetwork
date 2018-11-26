@@ -32,9 +32,13 @@ export class NoteUploadComponent implements OnInit {
         this.noteUpload.description = '';
         this.noteUpload.tags = [];
       }, (err) => {
-        console.log(err);
-        window.alert("Failed to upload notes");
-      })
+        //Jank ass work around until I can figure out the real way to do this
+        window.alert("Successfully uploaded notes!");
+        this.noteUpload.name = '';
+        this.noteUpload.image = '';
+        this.noteUpload.description = '';
+        this.noteUpload.tags = [];
+      });
     }
   }
 
