@@ -30,6 +30,7 @@ button {
    text-align: center;
    cursor: pointer;
    border-radius: 10%;
+   margin: 1em;
 }
 button:hover {
    background-color: #2F7EB2;
