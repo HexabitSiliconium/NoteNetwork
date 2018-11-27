@@ -1,10 +1,15 @@
-<div class= "background">
 <h2>
   View Notes
 </h2>
 
+<div>
+  <h3 style="text-align: center">Search</h3>
+  <input class="form-control" id="search" autocomplete="off" 
+    placeholder="Search by name or tags" [(ngModel)]="query">
+</div>
+
 <div class="row">
-  <ul class="list-unstyled" *ngFor="let note of notes">
+  <ul class="list-unstyled" *ngFor="let note of notes | FilterPipe: query">
     <a routerLink="/notes/{{ note?._id }}">
       <div class="card" style="width: 18rem;" >
         <li>
@@ -17,5 +22,4 @@
       </div>
     </a>
   </ul>
-</div>
 </div>

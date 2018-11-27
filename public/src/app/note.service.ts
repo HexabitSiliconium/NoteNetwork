@@ -31,7 +31,13 @@ export class NoteService {
     formData.append('uploader', window.localStorage.getItem('username'));
     //Post request to api upload endpoint
     //http://ec2-18-191-193-137.us-east-2.compute.amazonaws.com
-    return this.http.post('http://ec2-18-191-193-137.us-east-2.compute.amazonaws.com:8080/api/upload', formData)
+    return this.http.post('http://ec2-18-191-193-137.us-east-2.compute.amazonaws.com:8080/api/upload', {
+      image: note.image,
+      name: note.name,
+      description: note.description,
+      tags: JSON.stringify(note.tags),
+      uploader: window.localStorage.getItem('username')
+    })
   			.pipe(//Pipes response
   				map((res: Response) => {
             //Print response in console

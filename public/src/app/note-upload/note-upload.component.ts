@@ -14,7 +14,9 @@ export class NoteUploadComponent implements OnInit {
     image: '',
     description: '',
     tags: [],
-	};
+  };
+  
+  items;
   //Exposes NoteService component
   constructor(private noteServ: NoteService) { }
   //Upload method
@@ -22,7 +24,8 @@ export class NoteUploadComponent implements OnInit {
     //If all the required fields have been added
     if (this.noteUpload.name &&
       this.noteUpload.image &&
-      this.noteUpload.description) {
+      this.noteUpload.description &&
+      this.noteUpload.tags.length >= 1) {
       //Calls upload method in NoteService component
       this.noteServ.upload(this.noteUpload).subscribe(res => {
         //Display success message and clear inputs
@@ -57,7 +60,14 @@ export class NoteUploadComponent implements OnInit {
     }
   }
 
-  //TODO: ONADD AND ONREMOVE FOR TAGGING
+  onTagAdded(tag) {
+    this.noteUpload.tags.push(tag);
+  }
+
+  onTagRemoved(tag) {
+    let index = this.noteUpload.tags.indexOf(tag, 0);
+    this.noteUpload.tags.splice(index, 1);
+  }
 
   ngOnInit() {
   }
