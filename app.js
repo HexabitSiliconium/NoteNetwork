@@ -3,14 +3,16 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const passport = require('passport');
 const cors = require('cors');
+const multer = require('multer');
+const upload = multer({ dest: './uploads/'});
 
 const app = express();
 //Server app
 
 //Enable cors and bodyparser
 app.use(cors({ origin: true , credentials: true }));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
 //Enable method override for put and delete requests
 app.use(methodOverride());
 //Loading scripts for user-schema and passport

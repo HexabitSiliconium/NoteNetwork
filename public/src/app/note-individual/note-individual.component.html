@@ -1,36 +1,38 @@
-{{ note?.name }}
-{{ note?.description }}
+<div>
+	<h1>{{ note?.name }}</h1>
+</div>
+
+<div>
+	<button type = "button" (click) = "showPagesToggle()" class="btn btn-outline-primary">Show All Pages Toggle</button><br>
+
+	<span> [ Zoom: {{zoomLevel}}x ] </span><br>
+	<button type = "button" (click) = "zoomIncrement(-.1)" class = "btn btn-outline-primary">Zoom Out(-.1)</button>
+	<button type = "button" (click) = "zoomIncrement(-.05)" class = "btn btn-outline-primary">Zoom Out(-.05)</button>
+	<button type = "button" (click) = "zoomIncrement(-.01)" class = "btn btn-outline-primary">Zoom Out(-.01)</button>
+	
+	<button type = "button" (click) = "zoomIncrement(.01)" class = "btn btn-outline-primary">Zoom In(+.1)</button>
+	<button type = "button" (click) = "zoomIncrement(.05)" class = "btn btn-outline-primary">Zoom In(+.05)</button>
+	<button type ="button" (click) = "zoomIncrement(.1)" class ="btn btn-outline-primary">Zoom In(+.1)</button> <br>
+	
+	<span> [ Rotation: {{rotateOrientation}} ]</span><br>
+	<button type = "button" (click) = "rotateIncrement(-90)" class = "btn btn-outline-primary">Rotate Left(-90)</button>
+	
+	<button type = "button" (click) = "rotateIncrement(90)" class = "btn btn-outline-primary">Rotate Right (+90)</button>
+</div>
 
 <div>
 	<button type="button" (click) = "increment(-1)" class="btn btn-outline-primary">Previous</button>  
 	
 	<span>[ Page: {{count}} ]</span>
 	<button type="button" (click)= "increment(1)" class="btn btn-outline-primary">Next</button>
-	</div>
-	
-	<div>
-	  <button type = "button" (click) = "showPagesToggle()" class="btn btn-outline-primary">Show All Pages Toggle</button><br>
-  
-	  <span> [ Zoom: {{zoomLevel}}x ] </span><br>
-	  <button type = "button" (click) = "zoomIncrement(-.1)" class = "btn btn-outline-primary">Zoom Out(-.1)</button>
-	  <button type = "button" (click) = "zoomIncrement(-.05)" class = "btn btn-outline-primary">Zoom Out(-.05)</button>
-	  <button type = "button" (click) = "zoomIncrement(-.01)" class = "btn btn-outline-primary">Zoom Out(-.01)</button>
-	  
-	  <button type = "button" (click) = "zoomIncrement(.01)" class = "btn btn-outline-primary">Zoom In(+.1)</button>
-	  <button type = "button" (click) = "zoomIncrement(.05)" class = "btn btn-outline-primary">Zoom In(+.05)</button>
-	  <button type ="button" (click) = "zoomIncrement(.1)" class ="btn btn-outline-primary">Zoom In(+.1)</button> <br>
-	  
-	  <span> [ Rotation: {{rotateOrientation}} ]</span><br>
-	  <button type = "button" (click) = "rotateIncrement(-90)" class = "btn btn-outline-primary">Rotate Left(-90)</button>
-	  
-	  <button type = "button" (click) = "rotateIncrement(90)" class = "btn btn-outline-primary">Rotate Right (+90)</button>
-	
-	</div>
-	<pdf-viewer [src] = "pdfSrc" 
-				[render-text] = "true"
-				[show-all] = "showPages"
-				[page] = "count"
-				[zoom] = "zoomLevel"
-				[rotation] = "rotateOrientation"
-				style = "display: block;"
-	></pdf-viewer>
+	<h5>{{ note?.description }}</h5>
+</div>
+
+<pdf-viewer [src] = "pdfSrc" 
+			[render-text] = "true"
+			[show-all] = "showPages"
+			[page] = "count"
+			[zoom] = "zoomLevel"
+			[rotation] = "rotateOrientation"
+			style = "display: block;"
+></pdf-viewer>

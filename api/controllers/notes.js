@@ -32,27 +32,42 @@ module.exports.viewNoteDetails = (req, res) => {
 
 //Endpoint to upload notes
 module.exports.uploadNote = (req, res) => {
-	//Creates new note model
-	var note = new Note();
-	//Setting note fields based on request body
-	note.name = req.body.name;
-	note.image = req.body.image;
-	note.description = req.body.description;
-	// tags = JSON.parse(req.body.tags);
-	// for (var n in tags) {
-	// 	note.tags.push(tags[n].display);
-	// }
-	note.uploader = req.body.uploader;
-	//Finds user that uploaded note, and pushes note ID to their list of uploaded notes
-	User.findByIdAndUpdate({ username: req.body.uploader },
-		{$push: {notes: note._id}});
-	//Save note
-	note.save();
-	res.sendStatus(200);
+	var reqBody = '';
+	var body = {};
+    req.on('data', chunk => {
+        reqBody += chunk.toString(); // convert Buffer to string
+    });
+    req.on('end', () => {
+		body = JSON.parse(reqBody);
+		//Creates new note model
+		var note = new Note();
+		//Setting note fields based on request body
+		note.name = body.name;
+		note.image = body.image;
+		note.description = body.description;
+		tags = JSON.parse(body.tags);
+		for (var n in tags) {
+			note.tags.push(tags[n].display);
+		}
+		note.uploader = body.uploader;
+		//Finds user that uploaded note, and pushes note ID to their list of uploaded notes
+		User.findByIdAndUpdate({ username: body.uploader },
+			{$push: {notes: note._id}});
+		//Save note
+		note.save();
+		res.sendStatus(200);
+	});
 }
 
 module.exports.addComment = (req, res) => {
-	Note.findById({ _id: req.body._id}, 
+	Note.findByIdAndUpdate({ _id: req.body._id }, 
 		{$push: {comments: req.body.comment}});
+	res.sendStatus(200);
+}
+
+module.exports.vote = (req, res) => {
+	Note.findByIdAndUpdate({ _id: req.body._id }, 
+		{$inc: { votes: req.body.vote }}
+	);
 	res.sendStatus(200);
 }

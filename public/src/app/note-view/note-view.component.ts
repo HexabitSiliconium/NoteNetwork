@@ -12,6 +12,7 @@ import { NoteService, Note } from '../note.service';
 export class NoteViewComponent implements OnInit {
   //array of any objects(should probably be changed to Note objects)
   notes: any[] = [];
+  query: "";
   //Exposes NoteService component and DomSanitizer module
   constructor(private noteService: NoteService, private sanitizer: DomSanitizer) { }
   //Method to get notes

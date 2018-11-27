@@ -1,10 +1,15 @@
-<div class= "background">
 <h2>
   View Notes
 </h2>
 
 <div class="row">
-  <ul class="list-unstyled" *ngFor="let note of notes">
+  <h3>Search</h3>
+  <input class="form-control" style="width: 50%" id="search" autocomplete="off" 
+    placeholder="Search by name or tags" [(ngModel)]="query">
+</div>
+
+<div class="row">
+  <ul class="list-unstyled" *ngFor="let note of notes | FilterPipe: query">
     <a routerLink="/notes/{{ note?._id }}">
       <div class="card" style="width: 18rem;" >
         <li>
@@ -12,10 +17,11 @@
         <div class="card-content">
           <pdf-viewer [src]="note?.image" [original-size]="false" [show-all]="false" style="width: 50%"></pdf-viewer>
         </div>
-        <div class="card-footer">{{ note?.description }}</div>
+        <div class="card-footer" *ngFor="let tag of note.tags">
+          {{ tag }}
+        </div>
         </li>
       </div>
     </a>
   </ul>
-</div>
 </div>
