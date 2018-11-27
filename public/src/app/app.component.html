@@ -10,19 +10,6 @@
         <li *ngIf="!login.isLoggedIn()"><a routerLink="/login">Login/Register</a></li>
         <li *ngIf="login.isLoggedIn()"><a (click)="login.logout()">Logout</a></li>
       </div>
-     <!--
-    <div id="navbar-main">
-      <ul class="nav navbar-nav">
-        <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/notes">View Notes</a></li>
-        <li><a routerLink="/upload">Upload Notes</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="!login.isLoggedIn()"><a routerLink="/login">Login/Register</a></li>
-        <li *ngIf="login.isLoggedIn()"><a (click)="login.logout()">Logout</a></li>
-      </ul>
-    </div>
-    -->
   </div>
 </div>
 </body>
