@@ -1,23 +1,45 @@
 .bg{
-    height:100em;
+    height:100%;
     background-size:cover;
     width:100%;
     background-image: url("./notebook.jpeg");
     background-position:50% 50%;
 }
 
-.container{
+div {
     font-family: 'Roboto', sans-serif;
     text-align: center;
+}
+.container, .about, .team {
+   padding: 7em 0 8em 0;
+}
+.about {
+   background: rgba(240, 226, 232, 0.65);
+}
+.team a {
+   display: inline-block;
+   padding: 0 2em;
 }
 
 h1 {
    font-family: 'Impact';
-   font-size: 5em;
+   font-size: 4.75em;
    padding-top: 25%;
+}
+h2 {
+   font-family: 'Impact';
+   font-size: 2em;
+   margin-bottom: 1em;
 }
 h5 {
    margin-bottom: 1em;
+}
+
+p {
+   font-family: sans-serif;
+   margin: auto;
+   max-width: 80%;
+   line-height: 1.75em;
 }
 
 button {
@@ -35,4 +57,10 @@ button {
 button:hover {
    background-color: #2F7EB2;
    color: white;
+}
+
+.profile-photo {
+   border-radius: 50%;
+   height: 9em;
+   display: inline;
 }
