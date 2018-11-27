@@ -4,6 +4,7 @@ nav a, .login li a {
    transition: 0.6s ease;
    font-family: century gothic;
    text-decoration: none;
+   color: #017BFE;
 }
 .login {
    list-style-type: none;
