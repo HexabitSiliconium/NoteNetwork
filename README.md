@@ -6,6 +6,9 @@ This service lets students upload their class notes and look at the notes of oth
 To make sure the exchange is fair, in order for a user to look at another person’s notes, that user must upload their own notes first. 
 
 Install and run instructions:
+
 run npm install in root directory AND public directory
+
 run 'ng serve --open' without quotes in public directory to start frontend dev server
+
 run nodemon app.js in root directory to run api server
