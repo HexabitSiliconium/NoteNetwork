@@ -1,14 +1,37 @@
-
 .bg{
-    height:100em; 
+    height:100em;
     background-size:cover;
     width:100%;
     background-image: url("./notebook.jpeg");
-    background-position:50% 50%;    
+    background-position:50% 50%;
 }
 
 .container{
     font-family: 'Roboto', sans-serif;
-    
-} 
+    text-align: center;
+}
 
+h1 {
+   font-family: 'Impact';
+   font-size: 5em;
+   padding-top: 25%;
+}
+h5 {
+   margin-bottom: 1em;
+}
+
+button {
+   border: none;
+   outline: 0;
+   display: inline-block;
+   padding: 10px 25px;
+   color: black;
+   background-color: #63E2FC;
+   text-align: center;
+   cursor: pointer;
+   border-radius: 10%;
+}
+button:hover {
+   background-color: #2F7EB2;
+   color: white;
+}
