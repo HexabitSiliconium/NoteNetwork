@@ -47,7 +47,9 @@ export class PdfTestComponent implements OnInit {
   }
   
   rotateIncrement(amount:number){
-	  this.rotateOrientation += amount;
+    if(this.rotateOrientation < 360 || this.rotateOrientation > -360){
+      this.rotateOrientation += amount;
+    }
   }
   
   
