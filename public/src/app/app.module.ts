@@ -16,7 +16,6 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { PdfTestComponent } from './pdf-test/pdf-test.component';
 import { NoteIndividualComponent } from './note-individual/note-individual.component';
-import { FilterPipe } from './pipes';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,6 @@ import { FilterPipe } from './pipes';
     HomeComponent,
     PdfTestComponent,
     NoteIndividualComponent,
-    FilterPipe,
   ],
   imports: [
     BrowserModule,

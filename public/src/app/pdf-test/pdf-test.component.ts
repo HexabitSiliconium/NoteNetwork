@@ -34,7 +34,7 @@ export class PdfTestComponent implements OnInit {
   
   zoomIncrement(amount: number){
 		if(this.zoomLevel <= .51 && (amount ==-.1 || amount ==-.05 || amount ==-.01)){
-			console.log("Lowest Zoom reached");
+			console.log("Min Zoom reached");
 		}
 		else if(this.zoomLevel >=2 && (amount ==.1 || amount ==.05 || amount ==.01)) {
 			console.log("Max Zoom Reached");

@@ -24,11 +24,7 @@
             			placeholder="Describe your notes" autocomplete="off" [(ngModel)]="noteUpload.description">
            			</textarea>
 				</div>
-				<div class="form-group">
-					<label for="tags">Tags</label>
-					<tag-input [(ngModel)]="items" [ngModelOptions]="{standalone: true}"
-					 (onAdd)="onTagAdded($event)" (onRemove)="onTagRemoved($event)"></tag-input>
-				</div>
+				<!--TODO: ADD TAGGING-->
 				<button type="submit" class="btn btn-default">Submit notes</button>
 			</form>
 		</div>

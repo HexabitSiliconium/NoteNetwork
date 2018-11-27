@@ -2,13 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { NoteUploadComponent } from './note-upload/note-upload.component';
 //Note interface to send in requests
 export interface Note {
 	name: string;
   image: any;
   description: string;
-  tags: string[];
+  tags: String[];
 }
 
 @Injectable({
@@ -22,7 +21,6 @@ export class NoteService {
   constructor(private http: HttpClient) { }
   //Upload method
   upload(note: Note): Observable<any> {
-    const header = new HttpHeaders().set('Content-Type', 'application/json')
     //Sets up multipart/form-data for upload
     const formData = new FormData();
     //Appends appropriate fields
@@ -31,17 +29,9 @@ export class NoteService {
     formData.append('description', note.description);
     formData.append('tags', JSON.stringify(note.tags));
     formData.append('uploader', window.localStorage.getItem('username'));
-    console.log(note.image);
-    // Post request to api upload endpoint
-    // http://ec2-18-191-193-137.us-east-2.compute.amazonaws.com/
-    return this.http.post('http://ec2-18-191-193-137.us-east-2.compute.amazonaws.com:8080/api/upload', {
-      name: note.name,
-      image: note.image,
-      description: note.description,
-      tags: JSON.stringify(note.tags),
-      uploader: window.localStorage.getItem('username'),
-    }
-    )
+    //Post request to api upload endpoint
+    //http://ec2-18-191-193-137.us-east-2.compute.amazonaws.com
+    return this.http.post('http://ec2-18-191-193-137.us-east-2.compute.amazonaws.com:8080/api/upload', formData)
   			.pipe(//Pipes response
   				map((res: Response) => {
             //Print response in console

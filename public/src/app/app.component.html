@@ -3,12 +3,12 @@
   <div class="container">
      <nav>
         <a routerLink="/"><img src="../favicon.ico" style="height: 1.5em;"></a>
-        <a [hidden]="!login.isLoggedIn()" routerLink="/notes">View Notes</a>
-        <a [hidden]="!login.isLoggedIn()" routerLink="/upload">Upload Notes</a>
+        <a routerLink="/notes">View Notes</a>
+        <a routerLink="/upload">Upload Notes</a>
      </nav>
      <div class="login">
         <li *ngIf="!login.isLoggedIn()"><a routerLink="/login">Login/Register</a></li>
-        <li *ngIf="login.isLoggedIn()"><a routerLink="" (click)="login.logout()">Logout</a></li>
+        <li *ngIf="login.isLoggedIn()"><a (click)="login.logout()">Logout</a></li>
       </div>
   </div>
 </div>

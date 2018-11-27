@@ -18,7 +18,8 @@ div {
 }
 .team a {
    display: inline-block;
-   padding: 0 2em;
+   padding: 0 3em;
+   color: black;
 }
 
 h1 {
