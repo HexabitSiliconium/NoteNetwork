@@ -42,6 +42,8 @@ export class NoteUploadComponent implements OnInit {
         this.noteUpload.description = '';
         this.noteUpload.tags = [];
       });
+    } else {
+      window.alert("Missing field(s)! Please have every field filled out");
     }
   }
 

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { LoginService } from './login.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,9 @@ import { LoginService } from './login.service';
 })
 export class AppComponent {
   title = 'NoteNetwork';
-  constructor(public login: LoginService) { }
+  constructor(public login: LoginService, private titleService: Title) { }
+
+  ngOnInit() {
+    this.titleService.setTitle(this.title);
+  }
 }
