@@ -60,7 +60,7 @@ export class NoteIndividualComponent implements OnInit {
     }
     else{
       this.zoomLevel += amount;
-      this.zoomLevel = Math.floor(this.zoomLevel);
+      // this.zoomLevel = Math.floor(this.zoomLevel);
     }
 
   }
