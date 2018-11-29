@@ -23,9 +23,9 @@ router.get('/view-notes', noteCtrl.viewNotes);
 //Route to view note details/individual note
 router.post('/view-note-details', bodyParser.json(), noteCtrl.viewNoteDetails);
 //Route to upload comment
-router.post('/add-comment', noteCtrl.addComment);
+router.post('/add-comment', bodyParser.json(), noteCtrl.addComment);
 //Route to upvote/downvote
-router.post('/vote', noteCtrl.vote);
+router.post('/vote', bodyParser.json(), noteCtrl.vote);
 //Route to register
 router.post('/register', bodyParser.json(), authCtrl.register);
 //Route to login

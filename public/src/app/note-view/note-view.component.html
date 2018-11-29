@@ -6,6 +6,7 @@
   <h3 style="text-align: center">Search</h3>
   <input class="form-control" id="search" autocomplete="off" 
     placeholder="Search by name or tags" [(ngModel)]="query">
+    <br>
 </div>
 
 <div class="row">
@@ -15,7 +16,7 @@
         <li>
         <h3 class="card-header">{{ note?.name }}</h3>
         <div class="card-content">
-          <pdf-viewer [src]="note?.image" [original-size]="false" [show-all]="false" style="width: 50%"></pdf-viewer>
+          <pdf-viewer [src]="note?.image" [original-size]="false" [show-all]="false" style="width: 50%;"></pdf-viewer>
         </div>
         <div class="card-footer">{{ note?.description }}</div>
         </li>
