@@ -10,16 +10,32 @@ div {
     font-family: 'Roboto', sans-serif;
     text-align: center;
 }
-.container, .about, .team {
+.container, .team {
    padding: 7em 0 8em 0;
 }
 .about {
+   padding: 1em 0;
    background: rgba(240, 226, 232, 0.65);
 }
 .team a {
    display: inline-block;
    padding: 0 3em;
    color: black;
+}
+
+.key-features {
+   width: 40%;
+   margin: auto;
+}
+
+.feature {
+   padding: 0.5em;
+   font-family: monospace;
+   font-size: 1.25em;
+   background-color: rgba(255,255,255,0.65);
+}
+.fa {
+   color: deepskyblue;
 }
 
 h1 {
